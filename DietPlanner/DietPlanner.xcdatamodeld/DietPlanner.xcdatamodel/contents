@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H1519" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Nutritions" representedClassName="Nutritions" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RecipeDetail" inverseName="allNutritions" inverseEntity="RecipeDetail"/>
+    </entity>
+    <entity name="RecipeDetail" representedClassName="RecipeDetail" syncable="YES" codeGenerationType="class">
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="recipeId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="recipeTitle" optional="YES" attributeType="String"/>
+        <relationship name="allNutritions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Nutritions" inverseName="newRelationship" inverseEntity="Nutritions"/>
+    </entity>
+    <elements>
+        <element name="RecipeDetail" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Nutritions" positionX="-404" positionY="-14" width="128" height="88"/>
+    </elements>
+</model>
