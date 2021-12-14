@@ -7,10 +7,21 @@
 
 import UIKit
 
-class FavCollectionViewCell: UICollectionViewCell {
-    
+class FavCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var photo: UIImageView!
+    lazy var results = [Nutritions]()
+    
+    @IBOutlet weak var nutritionTableView: UITableView!
+//    self.nutritionTableView.dataSource = self
+//    self.nutritionTableView.delegate = self
+    
+    override func layoutSubviews()
+        {
+            super.layoutSubviews()
+            nutritionTableView.delegate = self
+            nutritionTableView.dataSource = self
+        }
     
     var recipe : RecipeDetail! {
             didSet {
@@ -21,14 +32,16 @@ class FavCollectionViewCell: UICollectionViewCell {
         func updateUI() {
           
             if let recipe = recipe {
-                var t = recipe.recipeTitle
                 title.text = recipe.recipeTitle
-                let img = recipe.imageUrl
                 
+                let img = recipe.imageUrl
                 var imageUrl = URL(string: img!)
                 let imageData = try? Data(contentsOf: imageUrl!)
-                
                 photo.image = UIImage(data: imageData!)
+                
+                self.results = recipe.allNutritions?.allObjects as [Nutritions]
+                
+                self.nutritionTableView.reloadData()
 
                 //colorView.backgroundColor = course.color
             } else {
@@ -38,4 +51,25 @@ class FavCollectionViewCell: UICollectionViewCell {
             }
            
         }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tblCell", for: indexPath) as! TwoColTableViewCell
+
+        var n = self.results[indexPath.row]
+        print(n)
+        var t = n.title
+        var a = n.amount
+        cell.nutritionTitle?.text = n.title
+        cell.nutritionAmount?.text = n.amount
+        return cell
+    }
 }

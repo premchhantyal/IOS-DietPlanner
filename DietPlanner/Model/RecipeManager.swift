@@ -12,7 +12,7 @@ class RecipeManager {
                      Cuisine(n: "Chinese", p: "chinese-cuisine"),
                      Cuisine(n: "French", p: "french"),
                      Cuisine(n: "Italian", p: "italian"),
-                     Cuisine(n: "Indian", p: "indian"),
+                     Cuisine(n: "Indian", p: "Indian"),
                      Cuisine(n: "Japanese", p: "japanese"),
                      Cuisine(n: "Mexican", p: "mexican"),
                      Cuisine(n: "Thai", p: "thai")
