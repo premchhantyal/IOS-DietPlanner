@@ -63,7 +63,7 @@ class RecipeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let item = results[indexPath.row]
         
-            //pass selected cuisine to DietViewController
+            //pass selected cuisine to DetailViewController
             if let viewController = storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController {
                 viewController.recipe = item
                 navigationController?.pushViewController(viewController, animated: false)

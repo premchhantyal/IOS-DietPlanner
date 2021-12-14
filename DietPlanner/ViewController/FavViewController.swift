@@ -16,16 +16,6 @@ class FavViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        let screenSize = UIScreen.main.bounds.size
-//        let cellWidth = floor(screenSize.width * cellScale )
-//        let cellHeight = floor(screenSize.height * cellScale)
-//        let instX = ( view.bounds.width - cellWidth ) / 2.0
-//        let instY = ( view.bounds.height - cellHeight ) / 2.0
-//        let layout = favCollectionView!.collectionViewLayout as! UICollectionViewFlowLayout
-//                
-//        layout.itemSize = CGSize(width: cellWidth, height: cellHeight )
-//        favCollectionView.contentInset = UIEdgeInsets(top: instY , left: instX , bottom: instY, right: instX )
                 
         self.favCollectionView.dataSource = self
         // Do any additional setup after loading the view.

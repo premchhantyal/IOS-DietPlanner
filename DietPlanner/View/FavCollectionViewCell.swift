@@ -13,8 +13,6 @@ class FavCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITabl
     lazy var results = [Nutritions]()
     
     @IBOutlet weak var nutritionTableView: UITableView!
-//    self.nutritionTableView.dataSource = self
-//    self.nutritionTableView.delegate = self
     
     override func layoutSubviews()
         {
@@ -42,12 +40,9 @@ class FavCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITabl
                 self.results = recipe.allNutritions?.allObjects as [Nutritions]
                 
                 self.nutritionTableView.reloadData()
-
-                //colorView.backgroundColor = course.color
             } else {
                 photo.image = nil
                 title.text = nil
-                //colorView.backgroundColor = nil
             }
            
         }
